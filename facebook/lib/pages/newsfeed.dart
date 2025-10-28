@@ -1,5 +1,6 @@
 import 'package:facebook/model/story_model.dart';
 import 'package:facebook/widgets/createpost.dart';
+import 'package:facebook/widgets/newsfeedpost.dart';
 import 'package:facebook/widgets/storieslist.dart';
 import 'package:flutter/material.dart';
 
@@ -67,14 +68,32 @@ class _NewsFeedState extends State<NewsFeed> {
           DrawerButton(),
         ],
       ),
-      body: Column(
-        children: [
-          const Createpost(),
-          StoriesList(
-            stories: stories,
-            onStoryTap: (story) {},
-            )
-          ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const Createpost(),
+            StoriesList(
+              stories: stories,
+              onStoryTap: (story) {},
+              ),
+              NewsFeedPost(),
+              NewsFeedPost(
+                name: "Alice Johnson",
+                caption: "Di nako magpapicture sa labas ng bahay.",
+                imageurl: "assets/myday/myday5.jpg",
+              ),
+              NewsFeedPost(
+                name: "Bob Smith",
+                caption: "Just cooked a delicious meal!",
+                imageurl: "assets/myday/myday4.jpg",
+              ),
+              NewsFeedPost(
+                name: "Cathy Lee",
+                caption: "Shat!",
+                imageurl: "assets/myday/myday5.jpg",
+              ),
+            ],
+        ),
       ),
     );
   }
